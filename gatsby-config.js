@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Padelman`,
+    description: `Synchronize padel times between groups of frirends`,
+    author: `Pär Linder`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -18,8 +18,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Padelman - Synchronize padel times`,
+        short_name: `Padelman`,
         start_url: `/`,
         background_color: `#343434`,
         theme_color: `#EFAD88`,
