@@ -3,6 +3,12 @@ import { useLocation } from "@reach/router"
 
 import { auth } from "../lib/auth"
 
+const readAll = () => {
+  return fetch("/.netlify/functions/todos-read-all").then(response => {
+    return response.json()
+  })
+}
+
 const IndexPage = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -45,12 +51,22 @@ const IndexPage = () => {
     }
   }
 
+  const readAllCustomers = async () => {
+    try {
+      const res = await readAll()
+      console.log("Success", res)
+    } catch (error) {
+      console.log("Error", error)
+    }
+  }
+
   return (
     <div>
       <input type="email" onChange={e => setEmail(e.target.value)} />
       <input type="password" onChange={e => setPassword(e.target.value)} />
       <button onClick={signup}>Sign up</button>
       <button onClick={login}>Log in</button>
+      <button onClick={readAllCustomers}>Read all customers</button>
       {token && <button onClick={confirm}>Verify</button>}
       <h1>Padelman</h1>
       <h2>Bokade tider</h2>
