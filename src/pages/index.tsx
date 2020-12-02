@@ -7,7 +7,7 @@ const IndexPage = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const locaton = useLocation()
+  const location = useLocation()
 
   let urlToken = ""
   if (location.hash.includes("#confirmation_token=")) {
