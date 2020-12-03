@@ -75,35 +75,41 @@ const IndexPage = () => {
       {/* <button onClick={listAllGames}>Read all Games</button> */}
       {token && <button onClick={confirm}>Verify</button>}
       <h1>Padelman</h1>
-      {games.map(g => (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            textAlign: "center",
-            // alignItems: "center",
-          }}
-        >
-          <h3>
-            {g.data.date["@date"]} - {g.data.arena}
-          </h3>
-          <div style={{ display: "flex" }}>
-            <div style={{ flex: 1 }}>
-              <h4>Spelare 1</h4>
-              <h5>{g.data.player1}</h5>
-              <h4>Spelare 3</h4>
-              <h5>{g.data.player3}</h5>
-            </div>
-            <div style={{ flex: 1 }}>
-              <h4>Spelare 2</h4>
-              <h5>{g.data.player2}</h5>
-              <h4>Spelare 4</h4>
-              <h5>{g.data.player4}</h5>
+      {games
+        .sort(
+          (g1, g2) =>
+            new Date(g1.data.date["@date"]).getTime() -
+            new Date(g2.data.date["@date"]).getTime()
+        )
+        .map(g => (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              textAlign: "center",
+              // alignItems: "center",
+            }}
+          >
+            <h3>
+              {g.data.date["@date"]} - {g.data.arena}
+            </h3>
+            <div style={{ display: "flex" }}>
+              <div style={{ flex: 1 }}>
+                <h4>Spelare 1</h4>
+                <h5>{g.data.player1}</h5>
+                <h4>Spelare 3</h4>
+                <h5>{g.data.player3}</h5>
+              </div>
+              <div style={{ flex: 1 }}>
+                <h4>Spelare 2</h4>
+                <h5>{g.data.player2}</h5>
+                <h4>Spelare 4</h4>
+                <h5>{g.data.player4}</h5>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
     </div>
   )
 }
