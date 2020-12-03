@@ -16,41 +16,46 @@ type CourtProps = {
 const Court = ({
   players: [player1, player2, player3, player4],
 }: CourtProps) => {
-  // const textStyles = [{}, {}, {}, {}]
-
-  // useEffect(() => {
-  //   const container = <div className="court-serve">{player1}</div>
-  //   console.log({ container })
-  // }, [])
-
   return (
-    <div className="court-wrapper">
-      <div className="court-main">
-        <div className="court-upper">
-          <div className="court-back"></div>
-          <div className="court-serves">
-            <div className="court-serve">
-              <span>{player1}</span>
-            </div>
-            <div className="court-serve">
-              <span>{player2}</span>
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        maxHeight: 360,
+        maxWidth: 280,
+        boxSizing: "border-box",
+        padding: 36,
+        margin: "auto",
+      }}
+    >
+      <div className="court-wrapper">
+        <div className="court-main">
+          <div className="court-upper">
+            <div className="court-back"></div>
+            <div className="court-serves">
+              <div className="court-serve">
+                <span>{player1}</span>
+              </div>
+              <div className="court-serve">
+                <span>{player2}</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="court-lower">
-          <div className="court-serves">
-            <div className="court-serve">
-              <span>{player3}</span>
+          <div className="court-lower">
+            <div className="court-serves">
+              <div className="court-serve">
+                <span>{player3}</span>
+              </div>
+              <div className="court-serve">
+                <span>{player4}</span>
+              </div>
             </div>
-            <div className="court-serve">
-              <span>{player4}</span>
-            </div>
+            <div className="court-back"></div>
           </div>
-          <div className="court-back"></div>
+          <div className="court-outer-border"></div>
         </div>
-        <div className="court-outer-border"></div>
+        <div className="court-net"></div>
       </div>
-      <div className="court-net"></div>
     </div>
   )
 }
