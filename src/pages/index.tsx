@@ -1,10 +1,10 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useLocation } from "@reach/router"
 
 import { auth } from "../lib/auth"
 
 const readAll = () => {
-  return fetch("/.netlify/functions/todos-read-all").then(response => {
+  return fetch("/.netlify/functions/games-list-all").then(response => {
     return response.json()
   })
 }
@@ -12,6 +12,7 @@ const readAll = () => {
 const IndexPage = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [games, setGames] = useState([])
 
   const location = useLocation()
 
@@ -51,14 +52,19 @@ const IndexPage = () => {
     }
   }
 
-  const readAllCustomers = async () => {
+  const listAllGames = async () => {
     try {
       const res = await readAll()
+      setGames(res)
       console.log("Success", res)
     } catch (error) {
       console.log("Error", error)
     }
   }
+
+  useEffect(() => {
+    listAllGames()
+  }, [])
 
   return (
     <div>
@@ -66,19 +72,38 @@ const IndexPage = () => {
       <input type="password" onChange={e => setPassword(e.target.value)} />
       <button onClick={signup}>Sign up</button>
       <button onClick={login}>Log in</button>
-      <button onClick={readAllCustomers}>Read all customers</button>
+      {/* <button onClick={listAllGames}>Read all Games</button> */}
       {token && <button onClick={confirm}>Verify</button>}
       <h1>Padelman</h1>
-      <h2>Bokade tider</h2>
-      <h3>2020-12-06</h3>
-      <h4>Spelare 1</h4>
-      <h5>Pär</h5>
-      <h4>Spelare 2</h4>
-      <h5>Pär</h5>
-      <h4>Spelare 3</h4>
-      <h5>Pär</h5>
-      <h4>Spelare 4</h4>
-      <h5>Pär</h5>
+      {games.map(g => (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            textAlign: "center",
+            // alignItems: "center",
+          }}
+        >
+          <h3>
+            {g.data.date["@date"]} - {g.data.arena}
+          </h3>
+          <div style={{ display: "flex" }}>
+            <div style={{ flex: 1 }}>
+              <h4>Spelare 1</h4>
+              <h5>{g.data.player1}</h5>
+              <h4>Spelare 3</h4>
+              <h5>{g.data.player3}</h5>
+            </div>
+            <div style={{ flex: 1 }}>
+              <h4>Spelare 2</h4>
+              <h5>{g.data.player2}</h5>
+              <h4>Spelare 4</h4>
+              <h5>{g.data.player4}</h5>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
