@@ -90,9 +90,9 @@ h3 {
   top: -1px;
   left: -1px;
   width: calc(100% + 2px);
-  height: calc(100% + px);
+  height: calc(100% + 2px);
   border: 2px solid white;
-  border-radius: 1px;
+  border-radius: 2px;
 }
 
 .court-net {
