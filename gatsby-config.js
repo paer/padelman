@@ -18,7 +18,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Padelman - Synchronize padel times`,
+        name: `Padelman`,
         short_name: `Padelman`,
         start_url: `/`,
         background_color: `#343434`,

@@ -1,0 +1,106 @@
+html {
+  background-color: #343434;
+  color: rgb(120, 200, 230);
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+.court-wrapper {
+  perspective: 100vw;
+  position: relative;
+  margin: auto;
+  width: 50vw;
+  height: 80vw;
+}
+
+.court-main {
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(20, 120, 150);
+  transform: rotate3d(1, 0, 0, 45deg);
+  display: flex;
+  flex-direction: column;
+}
+
+.court-lower,
+.court-upper {
+  flex: 1;
+  max-height: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.court-back {
+  flex: 1;
+  border: 0.5vw solid white;
+}
+
+.court-serves {
+  flex: 3;
+  max-height: 75%;
+  overflow: hidden;
+  display: flex;
+}
+.court-serve {
+  flex: 1 0 50%;
+  box-sizing: border-box;
+  max-width: 50%;
+  max-height: 100%;
+  border: 0.5vw solid white;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.court-serve span {
+  max-width: 100%;
+  text-align: center;
+  font-size: 20px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.court-serve:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 0.5vw solid red;
+}
+
+.court-outer-border {
+  position: absolute;
+  box-sizing: border-box;
+  pointer-events: none;
+  top: -0.5vw;
+  left: -0.5vw;
+  width: calc(100% + 1vw);
+  height: calc(100% + 1vw);
+  border: 1vw solid white;
+  border-radius: 0.4vw;
+}
+
+.court-net {
+  position: absolute;
+  box-sizing: border-box;
+  pointer-events: none;
+  top: 50%;
+  width: 100%;
+  height: 5vw;
+  transform: translateY(-100%);
+  border: 0.3vw solid gray;
+  border-bottom: none;
+  background: rgba(200, 200, 200, 0.5);
+}
