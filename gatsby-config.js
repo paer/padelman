@@ -25,6 +25,9 @@ module.exports = {
         theme_color: `#EFAD88`,
         display: `standalone`,
         icon: `src/images/padelman-icon.png`, // This path is relative to the root of the site.
+        icon_options: {
+          purpose: `any maskable`,
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
