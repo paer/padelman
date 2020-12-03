@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Padelman`,
-    description: `Synchronize padel times between groups of frirends`,
+    description: `Synchronize padel times between groups of friends`,
     author: `Pär Linder`,
   },
   plugins: [
